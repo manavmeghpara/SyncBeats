@@ -1,0 +1,98 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.18"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "hal",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.18"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "hal",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "app",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.18"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "app",
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "my_hello_world",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "hal::@ad971efe0e95b39e260f",
+					"jsonFile" : "target-hal-Debug-81f24dc687a1e9f90e1a.json",
+					"name" : "hal",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "hello_world::@5f5a17c01335469806cb",
+					"jsonFile" : "target-hello_world-Debug-1fa5b40f0c7b105c0d16.json",
+					"name" : "hello_world",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/danieva/cmpt433/work/project/SyncBeats/build",
+		"source" : "/home/danieva/cmpt433/work/project/SyncBeats"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 1
+	}
+}

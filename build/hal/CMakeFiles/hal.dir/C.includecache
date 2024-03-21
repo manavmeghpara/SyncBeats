@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../hal/include/hal/button.h
+stdbool.h
+-
+
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/button.c
+hal/button.h
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/hal/button.h
+assert.h
+-
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+
