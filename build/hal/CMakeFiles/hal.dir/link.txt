@@ -1,2 +1,2 @@
-/usr/bin/arm-linux-gnueabihf-ar qc libhal.a CMakeFiles/hal.dir/src/button.c.o
+/usr/bin/arm-linux-gnueabihf-ar qc libhal.a CMakeFiles/hal.dir/src/ble.c.o CMakeFiles/hal.dir/src/spi.c.o CMakeFiles/hal.dir/src/system.c.o CMakeFiles/hal.dir/src/uart.c.o
 /usr/bin/arm-linux-gnueabihf-ranlib libhal.a

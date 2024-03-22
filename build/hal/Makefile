@@ -67,10 +67,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danieva/cmpt433/work/project/SyncBeats
+CMAKE_SOURCE_DIR = /home/danieva/cmpt433/work/project/SyncBeats-main
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danieva/cmpt433/work/project/SyncBeats/build
+CMAKE_BINARY_DIR = /home/danieva/cmpt433/work/project/SyncBeats-main/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/project/SyncBeats/build/CMakeFiles /home/danieva/cmpt433/work/project/SyncBeats/build/hal//CMakeFiles/progress.marks
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/project/SyncBeats/build/CMakeFiles 0
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/project/SyncBeats-main/build/CMakeFiles /home/danieva/cmpt433/work/project/SyncBeats-main/build/hal//CMakeFiles/progress.marks
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/project/SyncBeats-main/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/clean
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 hal/CMakeFiles/hal.dir/rule:
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/CMakeFiles/hal.dir/rule
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/CMakeFiles/hal.dir/rule
 .PHONY : hal/CMakeFiles/hal.dir/rule
 
 # Convenience name for target.
@@ -141,35 +141,116 @@ hal: hal/CMakeFiles/hal.dir/rule
 
 # fast build rule for target.
 hal/fast:
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/build
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/build
 .PHONY : hal/fast
 
-src/button.o: src/button.c.o
+src/ble.o: src/ble.c.o
 
-.PHONY : src/button.o
+.PHONY : src/ble.o
 
 # target to build an object file
-src/button.c.o:
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/button.c.o
-.PHONY : src/button.c.o
+src/ble.c.o:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/ble.c.o
+.PHONY : src/ble.c.o
 
-src/button.i: src/button.c.i
+src/ble.i: src/ble.c.i
 
-.PHONY : src/button.i
+.PHONY : src/ble.i
 
 # target to preprocess a source file
-src/button.c.i:
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/button.c.i
-.PHONY : src/button.c.i
+src/ble.c.i:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/ble.c.i
+.PHONY : src/ble.c.i
 
-src/button.s: src/button.c.s
+src/ble.s: src/ble.c.s
 
-.PHONY : src/button.s
+.PHONY : src/ble.s
 
 # target to generate assembly for a file
-src/button.c.s:
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/button.c.s
-.PHONY : src/button.c.s
+src/ble.c.s:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/ble.c.s
+.PHONY : src/ble.c.s
+
+src/spi.o: src/spi.c.o
+
+.PHONY : src/spi.o
+
+# target to build an object file
+src/spi.c.o:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/spi.c.o
+.PHONY : src/spi.c.o
+
+src/spi.i: src/spi.c.i
+
+.PHONY : src/spi.i
+
+# target to preprocess a source file
+src/spi.c.i:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/spi.c.i
+.PHONY : src/spi.c.i
+
+src/spi.s: src/spi.c.s
+
+.PHONY : src/spi.s
+
+# target to generate assembly for a file
+src/spi.c.s:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/spi.c.s
+.PHONY : src/spi.c.s
+
+src/system.o: src/system.c.o
+
+.PHONY : src/system.o
+
+# target to build an object file
+src/system.c.o:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/system.c.o
+.PHONY : src/system.c.o
+
+src/system.i: src/system.c.i
+
+.PHONY : src/system.i
+
+# target to preprocess a source file
+src/system.c.i:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/system.c.i
+.PHONY : src/system.c.i
+
+src/system.s: src/system.c.s
+
+.PHONY : src/system.s
+
+# target to generate assembly for a file
+src/system.c.s:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/system.c.s
+.PHONY : src/system.c.s
+
+src/uart.o: src/uart.c.o
+
+.PHONY : src/uart.o
+
+# target to build an object file
+src/uart.c.o:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/uart.c.o
+.PHONY : src/uart.c.o
+
+src/uart.i: src/uart.c.i
+
+.PHONY : src/uart.i
+
+# target to preprocess a source file
+src/uart.c.i:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/uart.c.i
+.PHONY : src/uart.c.i
+
+src/uart.s: src/uart.c.s
+
+.PHONY : src/uart.s
+
+# target to generate assembly for a file
+src/uart.c.s:
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/uart.c.s
+.PHONY : src/uart.c.s
 
 # Help Target
 help:
@@ -180,9 +261,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hal"
-	@echo "... src/button.o"
-	@echo "... src/button.i"
-	@echo "... src/button.s"
+	@echo "... src/ble.o"
+	@echo "... src/ble.i"
+	@echo "... src/ble.s"
+	@echo "... src/spi.o"
+	@echo "... src/spi.i"
+	@echo "... src/spi.s"
+	@echo "... src/system.o"
+	@echo "... src/system.i"
+	@echo "... src/system.s"
+	@echo "... src/uart.o"
+	@echo "... src/uart.i"
+	@echo "... src/uart.s"
 .PHONY : help
 
 
@@ -194,6 +284,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

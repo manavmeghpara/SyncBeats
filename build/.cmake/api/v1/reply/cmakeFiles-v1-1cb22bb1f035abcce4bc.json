@@ -386,8 +386,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/danieva/cmpt433/work/project/SyncBeats/build",
-		"source" : "/home/danieva/cmpt433/work/project/SyncBeats"
+		"build" : "/home/danieva/cmpt433/work/project/SyncBeats-main/build",
+		"source" : "/home/danieva/cmpt433/work/project/SyncBeats-main"
 	},
 	"version" : 
 	{

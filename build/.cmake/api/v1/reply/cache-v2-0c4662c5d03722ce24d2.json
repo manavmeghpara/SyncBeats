@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/danieva/cmpt433/work/project/SyncBeats/build"
+			"value" : "/home/danieva/cmpt433/work/project/SyncBeats-main/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -463,7 +463,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/danieva/cmpt433/work/project/SyncBeats"
+			"value" : "/home/danieva/cmpt433/work/project/SyncBeats-main"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1059,7 +1059,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/danieva/cmpt433/work/project/SyncBeats/build"
+			"value" : "/home/danieva/cmpt433/work/project/SyncBeats-main/build"
 		},
 		{
 			"name" : "my_hello_world_SOURCE_DIR",
@@ -1071,7 +1071,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/danieva/cmpt433/work/project/SyncBeats"
+			"value" : "/home/danieva/cmpt433/work/project/SyncBeats-main"
 		}
 	],
 	"kind" : "cache",

@@ -70,14 +70,14 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "hal::@ad971efe0e95b39e260f",
-					"jsonFile" : "target-hal-Debug-81f24dc687a1e9f90e1a.json",
+					"jsonFile" : "target-hal-Debug-c174f010af1a84d98ea9.json",
 					"name" : "hal",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "hello_world::@5f5a17c01335469806cb",
-					"jsonFile" : "target-hello_world-Debug-1fa5b40f0c7b105c0d16.json",
+					"jsonFile" : "target-hello_world-Debug-2a44c4fd723773da6abb.json",
 					"name" : "hello_world",
 					"projectIndex" : 0
 				}
@@ -87,8 +87,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/danieva/cmpt433/work/project/SyncBeats/build",
-		"source" : "/home/danieva/cmpt433/work/project/SyncBeats"
+		"build" : "/home/danieva/cmpt433/work/project/SyncBeats-main/build",
+		"source" : "/home/danieva/cmpt433/work/project/SyncBeats-main"
 	},
 	"version" : 
 	{

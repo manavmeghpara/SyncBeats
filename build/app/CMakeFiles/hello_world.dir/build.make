@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danieva/cmpt433/work/project/SyncBeats
+CMAKE_SOURCE_DIR = /home/danieva/cmpt433/work/project/SyncBeats-main
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danieva/cmpt433/work/project/SyncBeats/build
+CMAKE_BINARY_DIR = /home/danieva/cmpt433/work/project/SyncBeats-main/build
 
 # Include any dependencies generated for this target.
 include app/CMakeFiles/hello_world.dir/depend.make
@@ -76,64 +76,34 @@ include app/CMakeFiles/hello_world.dir/progress.make
 # Include the compile flags for this target's objects.
 include app/CMakeFiles/hello_world.dir/flags.make
 
-app/CMakeFiles/hello_world.dir/src/badmath.c.o: app/CMakeFiles/hello_world.dir/flags.make
-app/CMakeFiles/hello_world.dir/src/badmath.c.o: ../app/src/badmath.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieva/cmpt433/work/project/SyncBeats/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object app/CMakeFiles/hello_world.dir/src/badmath.c.o"
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hello_world.dir/src/badmath.c.o -c /home/danieva/cmpt433/work/project/SyncBeats/app/src/badmath.c
-
-app/CMakeFiles/hello_world.dir/src/badmath.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hello_world.dir/src/badmath.c.i"
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danieva/cmpt433/work/project/SyncBeats/app/src/badmath.c > CMakeFiles/hello_world.dir/src/badmath.c.i
-
-app/CMakeFiles/hello_world.dir/src/badmath.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hello_world.dir/src/badmath.c.s"
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danieva/cmpt433/work/project/SyncBeats/app/src/badmath.c -o CMakeFiles/hello_world.dir/src/badmath.c.s
-
-app/CMakeFiles/hello_world.dir/src/hm13.c.o: app/CMakeFiles/hello_world.dir/flags.make
-app/CMakeFiles/hello_world.dir/src/hm13.c.o: ../app/src/hm13.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieva/cmpt433/work/project/SyncBeats/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object app/CMakeFiles/hello_world.dir/src/hm13.c.o"
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hello_world.dir/src/hm13.c.o -c /home/danieva/cmpt433/work/project/SyncBeats/app/src/hm13.c
-
-app/CMakeFiles/hello_world.dir/src/hm13.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hello_world.dir/src/hm13.c.i"
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danieva/cmpt433/work/project/SyncBeats/app/src/hm13.c > CMakeFiles/hello_world.dir/src/hm13.c.i
-
-app/CMakeFiles/hello_world.dir/src/hm13.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hello_world.dir/src/hm13.c.s"
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danieva/cmpt433/work/project/SyncBeats/app/src/hm13.c -o CMakeFiles/hello_world.dir/src/hm13.c.s
-
 app/CMakeFiles/hello_world.dir/src/main.c.o: app/CMakeFiles/hello_world.dir/flags.make
 app/CMakeFiles/hello_world.dir/src/main.c.o: ../app/src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieva/cmpt433/work/project/SyncBeats/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object app/CMakeFiles/hello_world.dir/src/main.c.o"
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hello_world.dir/src/main.c.o -c /home/danieva/cmpt433/work/project/SyncBeats/app/src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieva/cmpt433/work/project/SyncBeats-main/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object app/CMakeFiles/hello_world.dir/src/main.c.o"
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hello_world.dir/src/main.c.o -c /home/danieva/cmpt433/work/project/SyncBeats-main/app/src/main.c
 
 app/CMakeFiles/hello_world.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hello_world.dir/src/main.c.i"
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danieva/cmpt433/work/project/SyncBeats/app/src/main.c > CMakeFiles/hello_world.dir/src/main.c.i
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danieva/cmpt433/work/project/SyncBeats-main/app/src/main.c > CMakeFiles/hello_world.dir/src/main.c.i
 
 app/CMakeFiles/hello_world.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hello_world.dir/src/main.c.s"
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danieva/cmpt433/work/project/SyncBeats/app/src/main.c -o CMakeFiles/hello_world.dir/src/main.c.s
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danieva/cmpt433/work/project/SyncBeats-main/app/src/main.c -o CMakeFiles/hello_world.dir/src/main.c.s
 
 # Object files for target hello_world
 hello_world_OBJECTS = \
-"CMakeFiles/hello_world.dir/src/badmath.c.o" \
-"CMakeFiles/hello_world.dir/src/hm13.c.o" \
 "CMakeFiles/hello_world.dir/src/main.c.o"
 
 # External object files for target hello_world
 hello_world_EXTERNAL_OBJECTS =
 
-app/hello_world: app/CMakeFiles/hello_world.dir/src/badmath.c.o
-app/hello_world: app/CMakeFiles/hello_world.dir/src/hm13.c.o
 app/hello_world: app/CMakeFiles/hello_world.dir/src/main.c.o
 app/hello_world: app/CMakeFiles/hello_world.dir/build.make
 app/hello_world: hal/libhal.a
 app/hello_world: app/CMakeFiles/hello_world.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danieva/cmpt433/work/project/SyncBeats/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable hello_world"
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hello_world.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danieva/cmpt433/work/project/SyncBeats-main/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable hello_world"
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build/app && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hello_world.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copying ARM executable to public NFS directory"
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && /usr/bin/cmake -E copy /home/danieva/cmpt433/work/project/SyncBeats/build/app/hello_world ~/cmpt433/public/myApps/hello_world
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build/app && /usr/bin/cmake -E copy /home/danieva/cmpt433/work/project/SyncBeats-main/build/app/hello_world ~/cmpt433/public/myApps/hello_world
 
 # Rule to build all files generated by this target.
 app/CMakeFiles/hello_world.dir/build: app/hello_world
@@ -141,10 +111,10 @@ app/CMakeFiles/hello_world.dir/build: app/hello_world
 .PHONY : app/CMakeFiles/hello_world.dir/build
 
 app/CMakeFiles/hello_world.dir/clean:
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build/app && $(CMAKE_COMMAND) -P CMakeFiles/hello_world.dir/cmake_clean.cmake
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build/app && $(CMAKE_COMMAND) -P CMakeFiles/hello_world.dir/cmake_clean.cmake
 .PHONY : app/CMakeFiles/hello_world.dir/clean
 
 app/CMakeFiles/hello_world.dir/depend:
-	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danieva/cmpt433/work/project/SyncBeats /home/danieva/cmpt433/work/project/SyncBeats/app /home/danieva/cmpt433/work/project/SyncBeats/build /home/danieva/cmpt433/work/project/SyncBeats/build/app /home/danieva/cmpt433/work/project/SyncBeats/build/app/CMakeFiles/hello_world.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danieva/cmpt433/work/project/SyncBeats-main /home/danieva/cmpt433/work/project/SyncBeats-main/app /home/danieva/cmpt433/work/project/SyncBeats-main/build /home/danieva/cmpt433/work/project/SyncBeats-main/build/app /home/danieva/cmpt433/work/project/SyncBeats-main/build/app/CMakeFiles/hello_world.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : app/CMakeFiles/hello_world.dir/depend
 

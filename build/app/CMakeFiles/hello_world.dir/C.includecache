@@ -6,27 +6,25 @@
 
 #IncludeRegexTransform: 
 
-../app/include/badmath.h
-
-../hal/include/hal/button.h
-stdbool.h
+../hal/include/hal/uart.h
+stdlib.h
+-
+stdint.h
+-
+termios.h
 -
 
-/home/danieva/cmpt433/work/project/SyncBeats/app/src/badmath.c
-badmath.h
-/home/danieva/cmpt433/work/project/SyncBeats/app/src/badmath.h
-
-/home/danieva/cmpt433/work/project/SyncBeats/app/src/hm13.c
-SoftwareSerial.h
+/home/danieva/cmpt433/work/project/SyncBeats-main/app/src/main.c
+hal/uart.h
+/home/danieva/cmpt433/work/project/SyncBeats-main/app/src/hal/uart.h
+pthread.h
 -
-
-/home/danieva/cmpt433/work/project/SyncBeats/app/src/main.c
 stdio.h
 -
-stdbool.h
+stdlib.h
 -
-badmath.h
-/home/danieva/cmpt433/work/project/SyncBeats/app/src/badmath.h
-hal/button.h
-/home/danieva/cmpt433/work/project/SyncBeats/app/src/hal/button.h
+string.h
+-
+unistd.h
+-
 

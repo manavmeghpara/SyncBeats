@@ -4,9 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/danieva/cmpt433/work/project/SyncBeats/app/src/badmath.c" "/home/danieva/cmpt433/work/project/SyncBeats/build/app/CMakeFiles/hello_world.dir/src/badmath.c.o"
-  "/home/danieva/cmpt433/work/project/SyncBeats/app/src/hm13.c" "/home/danieva/cmpt433/work/project/SyncBeats/build/app/CMakeFiles/hello_world.dir/src/hm13.c.o"
-  "/home/danieva/cmpt433/work/project/SyncBeats/app/src/main.c" "/home/danieva/cmpt433/work/project/SyncBeats/build/app/CMakeFiles/hello_world.dir/src/main.c.o"
+  "/home/danieva/cmpt433/work/project/SyncBeats-main/app/src/main.c" "/home/danieva/cmpt433/work/project/SyncBeats-main/build/app/CMakeFiles/hello_world.dir/src/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -18,7 +16,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/danieva/cmpt433/work/project/SyncBeats/build/hal/CMakeFiles/hal.dir/DependInfo.cmake"
+  "/home/danieva/cmpt433/work/project/SyncBeats-main/build/hal/CMakeFiles/hal.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

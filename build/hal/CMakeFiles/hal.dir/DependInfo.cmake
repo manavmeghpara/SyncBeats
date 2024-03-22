@@ -4,7 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/danieva/cmpt433/work/project/SyncBeats/hal/src/button.c" "/home/danieva/cmpt433/work/project/SyncBeats/build/hal/CMakeFiles/hal.dir/src/button.c.o"
+  "/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/ble.c" "/home/danieva/cmpt433/work/project/SyncBeats-main/build/hal/CMakeFiles/hal.dir/src/ble.c.o"
+  "/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/spi.c" "/home/danieva/cmpt433/work/project/SyncBeats-main/build/hal/CMakeFiles/hal.dir/src/spi.c.o"
+  "/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/system.c" "/home/danieva/cmpt433/work/project/SyncBeats-main/build/hal/CMakeFiles/hal.dir/src/system.c.o"
+  "/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/uart.c" "/home/danieva/cmpt433/work/project/SyncBeats-main/build/hal/CMakeFiles/hal.dir/src/uart.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
