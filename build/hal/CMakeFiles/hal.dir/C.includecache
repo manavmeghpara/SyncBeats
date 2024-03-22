@@ -22,15 +22,15 @@ stdint.h
 termios.h
 -
 
-/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/ble.c
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/ble.c
 hal/ble.h
-/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/hal/ble.h
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/hal/ble.h
 hal/spi.h
-/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/hal/spi.h
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/hal/spi.h
 stdlib.h
 -
 
-/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/spi.c
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/spi.c
 fcntl.h
 -
 linux/spi/spidev.h
@@ -44,11 +44,11 @@ string.h
 sys/ioctl.h
 -
 hal/system.h
-/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/hal/system.h
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/hal/system.h
 hal/spi.h
-/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/hal/spi.h
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/hal/spi.h
 
-/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/system.c
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/system.c
 fcntl.h
 -
 stdio.h
@@ -58,9 +58,9 @@ stdlib.h
 time.h
 -
 hal/system.h
-/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/hal/system.h
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/hal/system.h
 
-/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/uart.c
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/uart.c
 fcntl.h
 -
 stdio.h
@@ -70,5 +70,5 @@ string.h
 unistd.h
 -
 hal/uart.h
-/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/hal/uart.h
+/home/danieva/cmpt433/work/project/SyncBeats/hal/src/hal/uart.h
 

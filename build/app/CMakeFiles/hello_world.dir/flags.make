@@ -4,7 +4,7 @@
 # compile C with /usr/bin/arm-linux-gnueabihf-gcc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/danieva/cmpt433/work/project/SyncBeats-main/app/include -I/home/danieva/cmpt433/work/project/SyncBeats-main/hal/include
+C_INCLUDES = -I/home/danieva/cmpt433/work/project/SyncBeats/app/include -I/home/danieva/cmpt433/work/project/SyncBeats/hal/include
 
 C_FLAGS = -g -Wall -Wpedantic -fdiagnostics-color -fsanitize=address -std=gnu11
 

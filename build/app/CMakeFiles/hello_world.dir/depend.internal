@@ -3,4 +3,4 @@
 
 app/CMakeFiles/hello_world.dir/src/main.c.o
  ../hal/include/hal/uart.h
- /home/danieva/cmpt433/work/project/SyncBeats-main/app/src/main.c
+ /home/danieva/cmpt433/work/project/SyncBeats/app/src/main.c

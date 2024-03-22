@@ -67,10 +67,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danieva/cmpt433/work/project/SyncBeats-main
+CMAKE_SOURCE_DIR = /home/danieva/cmpt433/work/project/SyncBeats
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danieva/cmpt433/work/project/SyncBeats-main/build
+CMAKE_BINARY_DIR = /home/danieva/cmpt433/work/project/SyncBeats/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/project/SyncBeats-main/build/CMakeFiles /home/danieva/cmpt433/work/project/SyncBeats-main/build/app//CMakeFiles/progress.marks
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/project/SyncBeats-main/build/CMakeFiles 0
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/project/SyncBeats/build/CMakeFiles /home/danieva/cmpt433/work/project/SyncBeats/build/app//CMakeFiles/progress.marks
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/project/SyncBeats/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/clean
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 app/CMakeFiles/hello_world.dir/rule:
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/hello_world.dir/rule
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/hello_world.dir/rule
 .PHONY : app/CMakeFiles/hello_world.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ hello_world: app/CMakeFiles/hello_world.dir/rule
 
 # fast build rule for target.
 hello_world/fast:
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/hello_world.dir/build.make app/CMakeFiles/hello_world.dir/build
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/hello_world.dir/build.make app/CMakeFiles/hello_world.dir/build
 .PHONY : hello_world/fast
 
 src/main.o: src/main.c.o
@@ -150,7 +150,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/hello_world.dir/build.make app/CMakeFiles/hello_world.dir/src/main.c.o
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/hello_world.dir/build.make app/CMakeFiles/hello_world.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -159,7 +159,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/hello_world.dir/build.make app/CMakeFiles/hello_world.dir/src/main.c.i
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/hello_world.dir/build.make app/CMakeFiles/hello_world.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -168,7 +168,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/hello_world.dir/build.make app/CMakeFiles/hello_world.dir/src/main.c.s
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/hello_world.dir/build.make app/CMakeFiles/hello_world.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 # Help Target
@@ -194,6 +194,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/danieva/cmpt433/work/project/SyncBeats-main/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/danieva/cmpt433/work/project/SyncBeats/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

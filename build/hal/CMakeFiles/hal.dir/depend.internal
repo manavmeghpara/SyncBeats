@@ -4,14 +4,14 @@
 hal/CMakeFiles/hal.dir/src/ble.c.o
  ../hal/include/hal/ble.h
  ../hal/include/hal/spi.h
- /home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/ble.c
+ /home/danieva/cmpt433/work/project/SyncBeats/hal/src/ble.c
 hal/CMakeFiles/hal.dir/src/spi.c.o
  ../hal/include/hal/spi.h
  ../hal/include/hal/system.h
- /home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/spi.c
+ /home/danieva/cmpt433/work/project/SyncBeats/hal/src/spi.c
 hal/CMakeFiles/hal.dir/src/system.c.o
  ../hal/include/hal/system.h
- /home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/system.c
+ /home/danieva/cmpt433/work/project/SyncBeats/hal/src/system.c
 hal/CMakeFiles/hal.dir/src/uart.c.o
  ../hal/include/hal/uart.h
- /home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/uart.c
+ /home/danieva/cmpt433/work/project/SyncBeats/hal/src/uart.c

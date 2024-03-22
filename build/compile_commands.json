@@ -1,27 +1,27 @@
 [
 {
-  "directory": "/home/danieva/cmpt433/work/project/SyncBeats-main/build/hal",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/project/SyncBeats-main/hal/hal/include -I/home/danieva/cmpt433/work/project/SyncBeats-main/hal/include -g -Wall -Wpedantic -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/ble.c.o -c /home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/ble.c",
-  "file": "/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/ble.c"
+  "directory": "/home/danieva/cmpt433/work/project/SyncBeats/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/project/SyncBeats/hal/hal/include -I/home/danieva/cmpt433/work/project/SyncBeats/hal/include -g -Wall -Wpedantic -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/ble.c.o -c /home/danieva/cmpt433/work/project/SyncBeats/hal/src/ble.c",
+  "file": "/home/danieva/cmpt433/work/project/SyncBeats/hal/src/ble.c"
 },
 {
-  "directory": "/home/danieva/cmpt433/work/project/SyncBeats-main/build/hal",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/project/SyncBeats-main/hal/hal/include -I/home/danieva/cmpt433/work/project/SyncBeats-main/hal/include -g -Wall -Wpedantic -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/spi.c.o -c /home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/spi.c",
-  "file": "/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/spi.c"
+  "directory": "/home/danieva/cmpt433/work/project/SyncBeats/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/project/SyncBeats/hal/hal/include -I/home/danieva/cmpt433/work/project/SyncBeats/hal/include -g -Wall -Wpedantic -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/spi.c.o -c /home/danieva/cmpt433/work/project/SyncBeats/hal/src/spi.c",
+  "file": "/home/danieva/cmpt433/work/project/SyncBeats/hal/src/spi.c"
 },
 {
-  "directory": "/home/danieva/cmpt433/work/project/SyncBeats-main/build/hal",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/project/SyncBeats-main/hal/hal/include -I/home/danieva/cmpt433/work/project/SyncBeats-main/hal/include -g -Wall -Wpedantic -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/system.c.o -c /home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/system.c",
-  "file": "/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/system.c"
+  "directory": "/home/danieva/cmpt433/work/project/SyncBeats/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/project/SyncBeats/hal/hal/include -I/home/danieva/cmpt433/work/project/SyncBeats/hal/include -g -Wall -Wpedantic -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/system.c.o -c /home/danieva/cmpt433/work/project/SyncBeats/hal/src/system.c",
+  "file": "/home/danieva/cmpt433/work/project/SyncBeats/hal/src/system.c"
 },
 {
-  "directory": "/home/danieva/cmpt433/work/project/SyncBeats-main/build/hal",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/project/SyncBeats-main/hal/hal/include -I/home/danieva/cmpt433/work/project/SyncBeats-main/hal/include -g -Wall -Wpedantic -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/uart.c.o -c /home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/uart.c",
-  "file": "/home/danieva/cmpt433/work/project/SyncBeats-main/hal/src/uart.c"
+  "directory": "/home/danieva/cmpt433/work/project/SyncBeats/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/project/SyncBeats/hal/hal/include -I/home/danieva/cmpt433/work/project/SyncBeats/hal/include -g -Wall -Wpedantic -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/uart.c.o -c /home/danieva/cmpt433/work/project/SyncBeats/hal/src/uart.c",
+  "file": "/home/danieva/cmpt433/work/project/SyncBeats/hal/src/uart.c"
 },
 {
-  "directory": "/home/danieva/cmpt433/work/project/SyncBeats-main/build/app",
-  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/project/SyncBeats-main/app/include -I/home/danieva/cmpt433/work/project/SyncBeats-main/hal/include -g -Wall -Wpedantic -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hello_world.dir/src/main.c.o -c /home/danieva/cmpt433/work/project/SyncBeats-main/app/src/main.c",
-  "file": "/home/danieva/cmpt433/work/project/SyncBeats-main/app/src/main.c"
+  "directory": "/home/danieva/cmpt433/work/project/SyncBeats/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/project/SyncBeats/app/include -I/home/danieva/cmpt433/work/project/SyncBeats/hal/include -g -Wall -Wpedantic -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hello_world.dir/src/main.c.o -c /home/danieva/cmpt433/work/project/SyncBeats/app/src/main.c",
+  "file": "/home/danieva/cmpt433/work/project/SyncBeats/app/src/main.c"
 }
 ]

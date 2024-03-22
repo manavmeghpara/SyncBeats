@@ -1,4 +1,4 @@
-# Install script for directory: /home/danieva/cmpt433/work/project/SyncBeats-main/app
+# Install script for directory: /home/danieva/cmpt433/work/project/SyncBeats/app
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

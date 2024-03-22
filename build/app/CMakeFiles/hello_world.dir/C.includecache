@@ -14,9 +14,9 @@ stdint.h
 termios.h
 -
 
-/home/danieva/cmpt433/work/project/SyncBeats-main/app/src/main.c
+/home/danieva/cmpt433/work/project/SyncBeats/app/src/main.c
 hal/uart.h
-/home/danieva/cmpt433/work/project/SyncBeats-main/app/src/hal/uart.h
+/home/danieva/cmpt433/work/project/SyncBeats/app/src/hal/uart.h
 pthread.h
 -
 stdio.h
