@@ -15,7 +15,11 @@ void* readDataFromBle(void* fd)
 	printf("Thread 1 Reading...\n");
     char byte [1024];
     while(1){
-        uart_read(uartFileDescriptor, &byte);
+        int bytesRead = read(uartFileDescriptor, &byte, 1024);
+        printf("%s\n", byte);
+        if (bytesRead < 0) {
+            perror("Error occurred while reading UART device file");
+        }
     }
     pthread_exit(NULL);
 }
