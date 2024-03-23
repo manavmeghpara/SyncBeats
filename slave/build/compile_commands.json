@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/manav/cmpt433/work/SyncBeats/slave/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/manav/cmpt433/work/SyncBeats/slave/hal/hal/include -I/home/manav/cmpt433/work/SyncBeats/slave/hal/include -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/uart.c.o -c /home/manav/cmpt433/work/SyncBeats/slave/hal/src/uart.c",
+  "file": "/home/manav/cmpt433/work/SyncBeats/slave/hal/src/uart.c"
+},
+{
+  "directory": "/home/manav/cmpt433/work/SyncBeats/slave/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/manav/cmpt433/work/SyncBeats/slave/app/include -I/home/manav/cmpt433/work/SyncBeats/slave/hal/include -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/slave.dir/src/main.c.o -c /home/manav/cmpt433/work/SyncBeats/slave/app/src/main.c",
+  "file": "/home/manav/cmpt433/work/SyncBeats/slave/app/src/main.c"
+}
+]
