@@ -28,7 +28,13 @@ void* writeToBle(void* fd)
 {
     int uartFileDescriptor = *((int*)fd);
 	printf("Thread 2 Writing 0xFE\n");
-    uart_write(uartFileDescriptor, 0xFE);
+    // uart_write(uartFileDescriptor, 0xFE);
+    char byte[1024] = "writing";  
+    int bytesWritten = write(uartFileDescriptor, &byte, 1);
+    if (bytesWritten < 0) {
+        perror("An error occurred while writing to the UART device file");
+    }
+    printf("wrote to phone\n"); 
     pthread_exit(NULL);
 }
 
