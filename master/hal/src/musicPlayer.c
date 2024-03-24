@@ -9,6 +9,9 @@
 int volume;
 bool musicPlaying = false; // Flag to indicate whether music is playing
 int songNumber = 0;
+bool isFastForward = false;
+bool isFastBackwards = false;
+int isPaused = 0;
 static pthread_t musicPlayerThreadId;
 void* musicPlayerThreadFunction(void* arg);
 
@@ -84,9 +87,20 @@ void playMusicFile(const char* path) {
 
     // Decode the mp3 data, store in the mp3Buffer, and play it back
     size_t bytesRead = 0;
+    size_t totalBytesRead = 0;
     while ((musicPlaying) && mpg123_read(mp3Handle, mp3Buffer, mp3BufferSize, &bytesRead) == MPG123_OK) {
-        snd_pcm_prepare(pcmHandle);
-        snd_pcm_writei(pcmHandle, mp3Buffer, bytesRead / numChannels / sizeof(short));
+        totalBytesRead += bytesRead;
+        while(isPaused);
+        if(isFastForward){
+            mpg123_seek(mp3Handle, 4608, SEEK_CUR); // Seek to the specified position
+            isFastForward = false;
+        }
+        if(isFastBackwards){
+            mpg123_seek(mp3Handle, (-3)*4608, SEEK_CUR); // Seek to the specified position
+            isFastBackwards = false;
+        }
+            snd_pcm_prepare(pcmHandle);
+            snd_pcm_writei(pcmHandle, mp3Buffer, bytesRead / numChannels / sizeof(short));
     }
     // Free the mp3 buffer and close/delete handles
     free(mp3Buffer);
@@ -95,6 +109,7 @@ void playMusicFile(const char* path) {
     mpg123_delete(mp3Handle);
 }
 void stopCurrentSong() {
+    //currentPosition = 0;
     musicPlaying = false; // Set flag to stop playing current song
 }
 void playNextSong(){
@@ -112,6 +127,18 @@ void playPreviousSong(){
         songNumber--;
         songNumber = songNumber % TOTAL_NUMBER_OF_SONGS;
     }
+}
+void fastForward() {
+    isFastForward = true; // Increment current position by specified seconds
+}
+
+void fastBackward(){
+    isFastBackwards = true;
+}
+
+void pauseSong(){
+    isPaused++;
+    isPaused = isPaused % 2;
 }
 
 void* musicPlayerThreadFunction(void* arg){

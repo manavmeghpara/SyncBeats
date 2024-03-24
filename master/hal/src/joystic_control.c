@@ -67,7 +67,21 @@ void* joystickThreadFunction(void* args){
 			playNextSong();
 			sleepForMs(300);
 		}
-		
+			break;
+		case Up:{
+			fastForward();
+			sleepForMs(100);
+		}
+			break;
+		case Down:{
+			fastBackward();
+			sleepForMs(100);
+		}
+			break;
+		case pressed_in:{
+			pauseSong();
+			sleepForMs(300);
+		}
 		default:
 			break;
 		}
