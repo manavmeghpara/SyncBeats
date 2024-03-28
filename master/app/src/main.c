@@ -1,4 +1,7 @@
 #include "hal/uart.h"
+#include "hal/musicPlayer.h"
+#include "hal/joystick_control.h"
+#include "hal/pot_pwm.h"
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -47,9 +50,16 @@ int main()
 
     pthread_create(&readTid, NULL, readDataFromBle, (void*)&fd);
     pthread_create(&writeTid, NULL, writeToBle, (void*)&fd);
+    musicPlayer_init();
+    joystick_init();
+    pot_pwm_init();
     while(1);
+    pot_pwm_cleanup();
+    joystick_cleanup();
+    musicPlayer_cleanup();
     pthread_join(readTid, NULL);
     pthread_join(writeTid, NULL);
+
 
     close(fd);
     return 0;
