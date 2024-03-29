@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../hal/include/hal/uart.h
+stdlib.h
+-
+stdint.h
+-
+termios.h
+-
+
+/home/danieva/cmpt433/work/project/SyncBeats/slave/app/src/main.c
+hal/uart.h
+/home/danieva/cmpt433/work/project/SyncBeats/slave/app/src/hal/uart.h
+pthread.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+

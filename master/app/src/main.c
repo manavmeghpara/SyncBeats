@@ -3,68 +3,32 @@
 #include "hal/joystick_control.h"
 #include "hal/network.h"
 #include "hal/pot_pwm.h"
+#include "hal/bluetooth.h"
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 
 #define MAX_LENGTH 1024
 // file for reading and writing to
 #define UART_DEVICE "/dev/ttyS2"
 
-void* readDataFromBle(void* fd)
-{
-    int uartFileDescriptor = *((int*)fd);
-	printf("Thread 1 Reading...\n");
-    char byte [1024];
-    while(1){
-        int bytesRead = read(uartFileDescriptor, &byte, 1024);
-        printf("%s\n", byte);
-        if (bytesRead < 0) {
-            perror("Error occurred while reading UART device file");
-        }
-    }
-    pthread_exit(NULL);
-}
 
-void* writeToBle(void* fd)
-{
-    int uartFileDescriptor = *((int*)fd);
-	printf("Thread 2 Writing 0xFE\n");
-    // uart_write(uartFileDescriptor, 0xFE);
-    char byte[1024] = "writing";  
-    int bytesWritten = write(uartFileDescriptor, &byte, 1);
-    if (bytesWritten < 0) {
-        perror("An error occurred while writing to the UART device file");
-    }
-    printf("wrote to phone\n"); 
-    pthread_exit(NULL);
-}
 
 int main()
 {
-    int fd = uart_init(UART_DEVICE);
-
-    pthread_t readTid;
-    pthread_t writeTid;
-
-    pthread_create(&readTid, NULL, readDataFromBle, (void*)&fd);
-    pthread_create(&writeTid, NULL, writeToBle, (void*)&fd);
-    musicPlayer_init();
-    joystick_init();
-    pot_pwm_init();
-    Network_init();
+    bluetooth_init(); 
+    // musicPlayer_init();
+    // joystick_init();
+    // pot_pwm_init();
+    // Network_init();
     while(1);
-    Network_cleanup();
-    pot_pwm_cleanup();
-    joystick_cleanup();
-    musicPlayer_cleanup();
-    pthread_join(readTid, NULL);
-    pthread_join(writeTid, NULL);
+    // Network_cleanup();
+    // pot_pwm_cleanup();
+    // joystick_cleanup();
+    // musicPlayer_cleanup();
+    bluetooth_cleanup(); 
 
-
-    close(fd);
     return 0;
 }
  

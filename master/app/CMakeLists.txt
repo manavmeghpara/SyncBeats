@@ -16,8 +16,8 @@ find_package(Threads REQUIRED)
 target_link_libraries(master LINK_PRIVATE Threads::Threads)
 
 # mpg123 library
-find_library(MPG123_LIBRARY mpg123 HINTS $ENV{HOME}/cmpt433/public/mpg123_lib_BBB)
-target_link_libraries(master LINK_PRIVATE ${MPG123_LIBRARY})
+# find_library(MPG123_LIBRARY mpg123 HINTS $ENV{HOME}/cmpt433/public/mpg123_lib_BBB)
+# target_link_libraries(master LINK_PRIVATE ${MPG123_LIBRARY})
 
 
 # Copy executable to final location (change `master` to project name as needed)

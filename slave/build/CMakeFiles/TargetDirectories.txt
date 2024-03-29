@@ -1,0 +1,8 @@
+/home/danieva/cmpt433/work/project/SyncBeats/slave/build/CMakeFiles/rebuild_cache.dir
+/home/danieva/cmpt433/work/project/SyncBeats/slave/build/CMakeFiles/edit_cache.dir
+/home/danieva/cmpt433/work/project/SyncBeats/slave/build/hal/CMakeFiles/rebuild_cache.dir
+/home/danieva/cmpt433/work/project/SyncBeats/slave/build/hal/CMakeFiles/edit_cache.dir
+/home/danieva/cmpt433/work/project/SyncBeats/slave/build/hal/CMakeFiles/hal.dir
+/home/danieva/cmpt433/work/project/SyncBeats/slave/build/app/CMakeFiles/rebuild_cache.dir
+/home/danieva/cmpt433/work/project/SyncBeats/slave/build/app/CMakeFiles/edit_cache.dir
+/home/danieva/cmpt433/work/project/SyncBeats/slave/build/app/CMakeFiles/slave.dir
