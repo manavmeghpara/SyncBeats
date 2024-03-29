@@ -70,7 +70,7 @@ void* joystickThreadFunction(void* args){
 		}
 			break;
 		case Up:{
-			fastForward();
+			fastForward(1);
 			sleepForMs(100);
 		}
 			break;
@@ -91,6 +91,7 @@ void* joystickThreadFunction(void* args){
 			
 			sleepForMs(300);
 		}
+			break;
 		default:
 			break;
 		}
