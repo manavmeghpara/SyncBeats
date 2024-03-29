@@ -64,9 +64,11 @@ void uart_command(int uartFileDescriptor, const char* COMMAND, char* response, s
 void uart_read(int uartFileDescriptor, char* rx_buffer)
 {
     int bytesRead = read(uartFileDescriptor, rx_buffer, 1024);
-    printf("%s\n", rx_buffer);
     if (bytesRead < 0) {
         perror("Error occurred while reading UART device file");
+    }else{
+        printf("%s\n", rx_buffer);
+
     }
 }
 
