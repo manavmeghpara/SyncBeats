@@ -20,14 +20,21 @@ void bluetooth_cleanup(){
 
 void* readDataFromBle(void* fd){
     int uartFileDescriptor = *((int*)fd);
-    char* rx_buffer = malloc(sizeof(*rx_buffer));
+    // char* rx_buffer = malloc(sizeof(*rx_buffer));
+    char rx_buffer; 
 	printf("Thread 1 Reading...\n");
 
     while(1){
-        uart_read(uartFileDescriptor, rx_buffer);
+        // uart_read(uartFileDescriptor, rx_buffer);
+        int bytesRead = read(uartFileDescriptor, &rx_buffer, 1);
+        if (bytesRead < 0) {
+            perror("Error occurred while reading UART device file");
+        }else{
+            printf("%c\n", rx_buffer);
+        }
         sleepForMs(50); 
     }
-    free(rx_buffer);
+    // free(rx_buffer);
 }
 
 void sleepForMs(long long delayInMs){
