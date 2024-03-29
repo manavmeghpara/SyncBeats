@@ -45,16 +45,18 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     prevBtn.addEventListener("click", function() {
-        // Implement logic to play previous song
+        sendCommandViaUDP("previous");
     });
 
     nextBtn.addEventListener("click", function() {
-        // Implement logic to play next song
+        sendCommandViaUDP("next");
     });
 
     volumeControl.addEventListener("input", function() {
-        audioPlayer.volume = this.value;
-		var str = "volume " + this.value*100; 
+        var v = (this.value).toString();
+        console.log(v);
+        audioPlayer.volume = this.value / 100;
+		var str = "volume " + v; 
 		sendCommandViaUDP(str);
     });
 });

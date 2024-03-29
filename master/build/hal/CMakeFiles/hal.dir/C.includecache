@@ -10,7 +10,17 @@
 pthread.h
 -
 
-../hal/include/hal/pot_pwm.h
+../hal/include/hal/network.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+arpa/inet.h
+-
 pthread.h
 -
 
@@ -24,19 +34,13 @@ time.h
 stdbool.h
 -
 
-/home/manav/cmpt433/work/SyncBeats/master/hal/src/pot_pwm.c
-hal/pot_pwm.h
-/home/manav/cmpt433/work/SyncBeats/master/hal/src/hal/pot_pwm.h
+/home/manav/cmpt433/work/SyncBeats/master/hal/src/network.c
+hal/network.h
+/home/manav/cmpt433/work/SyncBeats/master/hal/src/hal/network.h
 hal/util.h
 /home/manav/cmpt433/work/SyncBeats/master/hal/src/hal/util.h
 hal/musicPlayer.h
 /home/manav/cmpt433/work/SyncBeats/master/hal/src/hal/musicPlayer.h
-stdio.h
--
-stdint.h
--
-stdlib.h
--
-stdbool.h
+ctype.h
 -
 

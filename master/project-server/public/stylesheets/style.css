@@ -1,34 +1,82 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 h1 {
-    text-align: center;
     color: #333;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .player {
     background-color: #fff;
     border: 1px solid #ccc;
+    border-radius: 10px;
     padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .controls {
-    text-align: center;
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
+.control-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.control-btn:hover {
+    background-color: #0056b3;
+}
+
 .volume {
-    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .volume input {
-    width: 100%;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.fa-volume-up {
+    font-size: 20px;
+    color: #333;
+}
+
+@media screen and (max-width: 600px) {
+    .player {
+        padding: 10px;
+    }
+
+    .control-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .fa-volume-up {
+        font-size: 16px;
+    }
 }

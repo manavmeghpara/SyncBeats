@@ -13,7 +13,7 @@
 
 #define MAX_LEN 1024 
 #define PORT 12345 // communicate with udp server
-
+ 
 
 // Network thread that communicates with server and reply back with data
 void Network_init();

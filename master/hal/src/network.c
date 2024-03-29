@@ -42,6 +42,26 @@ void Network_play()
     sendto(sockfd, messageTx, strlen(messageTx),0, (struct sockaddr *) &client_addr, client_addr_len);
 }
 
+void Network_next()
+{
+    stopCurrentSong();
+    playNextSong();
+
+    char messageTx[MAX_LEN];
+    snprintf(messageTx, MAX_LEN, "Next song\n");
+    sendto(sockfd, messageTx, strlen(messageTx),0, (struct sockaddr *) &client_addr, client_addr_len);
+}
+
+void Network_previous()
+{
+    stopCurrentSong();
+    playPreviousSong();
+
+    char messageTx[MAX_LEN];
+    snprintf(messageTx, MAX_LEN, "Previous song\n");
+    sendto(sockfd, messageTx, strlen(messageTx),0, (struct sockaddr *) &client_addr, client_addr_len);
+}
+
 	   
 
 // void Network_update(){
@@ -77,6 +97,10 @@ void *handle_client(void *arg) {
             Network_play();
         else if(strncmp(buffer, "pause", 5)==0)
             Network_pause();
+        else if(strncmp(buffer, "next", 4)==0)
+            Network_next();
+        else if(strncmp(buffer, "previous", 8)==0)
+            Network_previous();
 
      
           

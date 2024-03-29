@@ -64,9 +64,9 @@ int main()
     pthread_join(writeTid, NULL);
 
 
-    close(fd);
+    close(fd); 
     return 0;
-}
+}      
  
 // #include <stdio.h>
 // #include <stdlib.h>
