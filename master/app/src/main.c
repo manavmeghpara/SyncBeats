@@ -18,15 +18,15 @@
 int main()
 {
     bluetooth_init(); 
-    // musicPlayer_init();
-    // joystick_init();
-    // pot_pwm_init();
-    // Network_init();
+    musicPlayer_init();
+    joystick_init();
+    pot_pwm_init();
+    Network_init();
     while(1);
-    // Network_cleanup();
-    // pot_pwm_cleanup();
-    // joystick_cleanup();
-    // musicPlayer_cleanup();
+    Network_cleanup();
+    pot_pwm_cleanup();
+    joystick_cleanup();
+    musicPlayer_cleanup();
     bluetooth_cleanup(); 
 
     return 0;
