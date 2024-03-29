@@ -54,45 +54,23 @@ void pot_pwm_init() {
     pthread_create(&pwm_thread, NULL, pwm_thread_function, NULL);
 }
 
-void set_duty_cycle(){
-    writeFile(PWM_DUTY_CYCLE_FILE, "10000000");
-}
-
-// Function to set the PWM frequency based on potentiometer value
-void set_pwm_frequency(int pot_value) {
-    // Compute period
-    double period = (double)(1000000000)/(pot_value / 40);
-    //printf("period value = %f\n", period);
-
-    char result[50];
-    snprintf(result, 50, "%d", (int)period);  
-    writeFile(PWM_PERIOD_FILE, result);
-
-}
-
-// Function to read potentiometer value and update PWM frequency for LED control
-void update_pwm_frequency() {
-    pot_value = read_pot_value();
-    if((last_value != pot_value)){
-        set_pwm_frequency(pot_value);
-        last_value = pot_value;
-    }
-
-    //sleepForMs(100);
-}
 
 // Thread function to continuously update PWM frequency
 void *pwm_thread_function(void* args) {
     (void)args;
-
+    int current_pot = 0;
     while (1) {
-        set_duty_cycle();
-        update_pwm_frequency();
+        int v = read_pot_value()/41;
+        if( v != current_pot){
+            musicPlayer_setVolume(v);
+            current_pot = v;
+            pot_value = v;
+        }
         // Sleep or delay
         //read_pot_value();
         //printf("POT value = %d\n", pot_value);
         //printf("Volume = %d\n", pot_value/41);
-        musicPlayer_setVolume(pot_value/41);
+        
         sleepForMs(100);
     }
     return NULL;

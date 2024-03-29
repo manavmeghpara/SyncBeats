@@ -1,0 +1,8 @@
+/home/manav/cmpt433/work/SyncBeats/master/build/CMakeFiles/rebuild_cache.dir
+/home/manav/cmpt433/work/SyncBeats/master/build/CMakeFiles/edit_cache.dir
+/home/manav/cmpt433/work/SyncBeats/master/build/hal/CMakeFiles/rebuild_cache.dir
+/home/manav/cmpt433/work/SyncBeats/master/build/hal/CMakeFiles/edit_cache.dir
+/home/manav/cmpt433/work/SyncBeats/master/build/hal/CMakeFiles/hal.dir
+/home/manav/cmpt433/work/SyncBeats/master/build/app/CMakeFiles/rebuild_cache.dir
+/home/manav/cmpt433/work/SyncBeats/master/build/app/CMakeFiles/edit_cache.dir
+/home/manav/cmpt433/work/SyncBeats/master/build/app/CMakeFiles/master.dir

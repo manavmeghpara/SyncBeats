@@ -49,6 +49,7 @@ enum eJoystickDirections getDirections() {
 void* joystickThreadFunction(void* args){
 	(void)args;
 	musicPlayer_setVolume(80);
+	bool isPaused = false;
 	while (1){
 		
 		enum eJoystickDirections direction;
@@ -79,7 +80,15 @@ void* joystickThreadFunction(void* args){
 		}
 			break;
 		case pressed_in:{
-			pauseSong();
+			if(isPaused){
+				playSong();
+				isPaused = false;
+			}
+			else{
+				pauseSong();
+				isPaused = true;
+			}
+			
 			sleepForMs(300);
 		}
 		default:

@@ -26,6 +26,8 @@ void fastBackward();
 
 void pauseSong();
 
+void playSong();
+
 // Function to play music in a separate thread
 void* musicPlayer_playMusic(void* arg);
 

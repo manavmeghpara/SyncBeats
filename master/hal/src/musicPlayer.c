@@ -11,7 +11,7 @@ bool musicPlaying = false; // Flag to indicate whether music is playing
 int songNumber = 0;
 bool isFastForward = false;
 bool isFastBackwards = false;
-int isPaused = 0;
+bool isPaused = false;
 static pthread_t musicPlayerThreadId;
 void* musicPlayerThreadFunction(void* arg);
 
@@ -137,8 +137,11 @@ void fastBackward(){
 }
 
 void pauseSong(){
-    isPaused++;
-    isPaused = isPaused % 2;
+    isPaused = true;
+}
+
+void playSong(){
+    isPaused = false;
 }
 
 void* musicPlayerThreadFunction(void* arg){

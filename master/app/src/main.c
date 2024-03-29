@@ -1,6 +1,7 @@
 #include "hal/uart.h"
 #include "hal/musicPlayer.h"
 #include "hal/joystick_control.h"
+#include "hal/network.h"
 #include "hal/pot_pwm.h"
 #include <pthread.h>
 #include <stdio.h>
@@ -53,7 +54,9 @@ int main()
     musicPlayer_init();
     joystick_init();
     pot_pwm_init();
+    Network_init();
     while(1);
+    Network_cleanup();
     pot_pwm_cleanup();
     joystick_cleanup();
     musicPlayer_cleanup();
@@ -64,7 +67,7 @@ int main()
     close(fd);
     return 0;
 }
-
+ 
 // #include <stdio.h>
 // #include <stdlib.h>
 // #include <unistd.h>
