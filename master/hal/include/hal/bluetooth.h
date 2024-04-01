@@ -6,9 +6,18 @@
 #include <time.h> 
 
 #include "uart.h"
-enum commands{Play, Stop, Vol_UP, Vol_DOWN};
+#include "util.h"
+#include "musicPlayer.h"
+
+enum commands{
+    PLAY, 
+    STOP, 
+    VOLUME_UP,
+    VOLUME_DOWN,
+    NEXT,
+    PREVIOUS
+};
 void bluetooth_init(); 
 void bluetooth_cleanup(); 
-void* writeToBle(void* fd);
-void sleepForMs(long long delayInMs);
+void* readDataFromBle(void* fd);
 #endif

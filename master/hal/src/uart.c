@@ -34,7 +34,8 @@ int uart_init(const char* UART_DEVICE)
     tty.c_lflag &= ~(ICANON | ECHO | ECHOE | ISIG); // Raw input
     tty.c_iflag &= ~(IXON | IXOFF | IXANY); // Disable software flow control
     tty.c_oflag &= ~OPOST; // Raw output
-    tty.c_cc[VMIN] = 1; // Read at least 1 character tty.c_cc[VTIME] = 5; // Timeout in 0.5 seconds
+    tty.c_cc[VMIN] = 1; // Read at least 1 character 
+    tty.c_cc[VTIME] = 5; // Timeout in 0.5 seconds
 
     if (tcsetattr(uartFileDescriptor, TCSANOW, &tty) != 0) {
         perror("Error setting serial port attributes");

@@ -3,13 +3,13 @@
 
 #define MAX_LENGTH 1024
 // file for reading and writing to
-#define UART_DEVICE "/dev/ttyS2"
+#define UART_DEVICE "/dev/ttyS4"
 static pthread_t writeTid;
 static int fd; 
 
 void bluetooth_init(){
 	fd = uart_init(UART_DEVICE);
-	pthread_create(&writeTid, NULL, writeToBle, (void*)&fd);
+	pthread_create(&writeTid, NULL, readDataFromBle, (void*)&fd);
 }
 
 
@@ -19,55 +19,77 @@ void bluetooth_cleanup(){
     close(fd);
 }
 
-void* writeToBle(void* fd){
-    int uartFileDescriptor = *((int*)fd);
-	printf("Thread 2 Writing 0xFE\n");
-	while(1){
-		int bytesWritten = -1; 
-		enum eJoystickDirections direction = getDirections(); 
-		switch(direction){
-			case Left:{
-				 bytesWritten = write(uartFileDescriptor, "Left\n", sizeof("Left\n"));
-			}
-			break; 
-			case Right:{
-				 bytesWritten = write(uartFileDescriptor, "Right\n", sizeof("Right\n"));
-			}
-				break;
-			case Up:{
-				 bytesWritten = write(uartFileDescriptor, "Up\n", sizeof("Up\n"));
-			}
-				break;
-			case Down:{
-				 bytesWritten = write(uartFileDescriptor, "Down\n", sizeof("Down\n"));
-			
-			}
-				break;
-			case pressed_in:{
-				 bytesWritten = write(uartFileDescriptor, "hi\n", sizeof("hi\n"));	
-			}
-			default:
-			break;
-
-		}
-
-		if (bytesWritten < 0) {
-			perror("An error occurred while writing to the UART device file");
-		}
-
-		sleepForMs(50); 
-	}
+int charToInt(char c) {
+    // Check if the character is between '0' and '9'
+    if(c >= '0' && c <= '9') {
+        // Subtract '0' to convert to int
+        return c - '0';
+    } else {
+        // Return -1 or some error code if not a digit
+        return -1;
+    }
 }
 
-void sleepForMs(long long delayInMs){
-    const long long NS_PER_MS = 1000 * 1000; 
-    const long long NS_PER_SECOND = 1000000000;
-    
-    long long delayNs = delayInMs * NS_PER_MS; 
-    int seconds = delayNs / NS_PER_SECOND;
-    int nanoseconds = delayNs % NS_PER_SECOND; 
+void* readDataFromBle(void* fd){
+    int uartFileDescriptor = *((int*)fd);
+    //char* rx_buffer = malloc(sizeof(*rx_buffer));
+    char rx_buffer; 
+	printf("Thread 1 Reading...\n");
 
-    struct timespec reqDelay = {seconds, nanoseconds}; 
-    nanosleep(&reqDelay, (struct timespec *) NULL);
+    while(1){
+        // uart_read(uartFileDescriptor, rx_buffer);
+        int bytesRead = read(uartFileDescriptor, &rx_buffer, 1);
+        if (bytesRead < 0) {
+            perror("Error occurred while reading UART device file");
+        }else{
+            printf("%c\n", rx_buffer);
+            if( rx_buffer >= '0' && rx_buffer <= '9' ){
+        
+                enum commands c = charToInt(rx_buffer);
 
+                switch(c){
+                case PLAY:{
+                    printf("Play\n");
+					playSong();
+                }
+                break; 
+                case STOP:{
+                    printf("Stop\n");	
+					pauseSong();
+                }
+                    break;
+                case VOLUME_UP:{
+                    printf("V Up\n");
+					int v = musicPlayer_getVolume();
+					musicPlayer_setVolume(v+10);
+                }
+                    break;
+                case VOLUME_DOWN:{
+                    printf("V Down\n");
+					int v = musicPlayer_getVolume();
+					musicPlayer_setVolume(v-10);
+                
+                }
+				break;
+				case NEXT:{
+                    printf("Next\n");	
+                    stopCurrentSong();
+					playNextSong();
+                }
+                    break;
+				case PREVIOUS:{
+                    printf("Previous\n");
+                    stopCurrentSong();	
+					playPreviousSong();
+                }
+                    break;
+                default:
+                break;
+
+                }
+            }
+            
+        }
+        sleepForMs(50); 
+    }
 }

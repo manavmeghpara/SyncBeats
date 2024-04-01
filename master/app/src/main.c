@@ -11,7 +11,7 @@
 
 #define MAX_LENGTH 1024
 // file for reading and writing to
-#define UART_DEVICE "/dev/ttyS2"
+#define UART_DEVICE "/dev/ttyS4"
 
 
 
