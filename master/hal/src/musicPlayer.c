@@ -12,6 +12,9 @@ int songNumber = 0;
 bool isFastForward = false;
 bool isFastBackwards = false;
 bool isPaused = false;
+int sec = 1;
+int songLength;
+int currentPosition;
 static pthread_t musicPlayerThreadId;
 void* musicPlayerThreadFunction(void* arg);
 
@@ -21,6 +24,36 @@ void musicPlayer_init(){
     musicPlaying = true;
     pthread_create(&musicPlayerThreadId, NULL, musicPlayerThreadFunction, NULL);
 }
+void calculateSongLength(mpg123_handle *mp3Handle) {
+    off_t totalFrames = mpg123_length(mp3Handle)/1152; // Total number of frames
+    double frameDuration = mpg123_tpf(mp3Handle); // MPEG frame duration in seconds
+
+    if (totalFrames >= 0 && frameDuration > 0) {
+        songLength = totalFrames * frameDuration; // Total time in seconds
+
+    } else {
+        printf("Unable to determine total length.\n");
+    }
+}
+
+int getSongLength(){
+    //printf("Song Length : %d seconds\n", songLength);
+    return songLength;
+}
+
+int getCurrentPosition(){
+    //printf("Current Position: %d seconds\n", currentPosition);
+    return currentPosition;
+}
+
+
+void calculateCurrentPosition(mpg123_handle *mp3Handle){
+    double frameDuration = mpg123_tpf(mp3Handle); // MPEG frame duration in seconds
+    // Get current position in seconds
+    off_t currentPositionFrames = mpg123_tellframe(mp3Handle); // Current position in frames
+    currentPosition = currentPositionFrames * frameDuration; // Current position in seconds
+} 
+
 int musicPlayer_getVolume(){
     return volume;
 }
@@ -85,14 +118,14 @@ void playMusicFile(const char* path) {
     snd_pcm_hw_params_set_rate_near(pcmHandle, params, &bitRate, 0);
     snd_pcm_hw_params(pcmHandle, params);
 
+    calculateSongLength(mp3Handle);
+
     // Decode the mp3 data, store in the mp3Buffer, and play it back
     size_t bytesRead = 0;
-    size_t totalBytesRead = 0;
     while ((musicPlaying) && mpg123_read(mp3Handle, mp3Buffer, mp3BufferSize, &bytesRead) == MPG123_OK) {
-        totalBytesRead += bytesRead;
         while(isPaused);
         if(isFastForward){
-            mpg123_seek(mp3Handle, 4608, SEEK_CUR); // Seek to the specified position
+            mpg123_seek(mp3Handle, sec*4608, SEEK_CUR); // Seek to the specified position
             isFastForward = false;
         }
         if(isFastBackwards){
@@ -101,6 +134,7 @@ void playMusicFile(const char* path) {
         }
             snd_pcm_prepare(pcmHandle);
             snd_pcm_writei(pcmHandle, mp3Buffer, bytesRead / numChannels / sizeof(short));
+            calculateCurrentPosition(mp3Handle);
     }
     // Free the mp3 buffer and close/delete handles
     free(mp3Buffer);
@@ -128,7 +162,8 @@ void playPreviousSong(){
         songNumber = songNumber % TOTAL_NUMBER_OF_SONGS;
     }
 }
-void fastForward() {
+void fastForward(int second) {
+    sec = second;
     isFastForward = true; // Increment current position by specified seconds
 }
 
