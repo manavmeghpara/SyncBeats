@@ -1,5 +1,6 @@
 #include "hal/bluetooth.h"
 #include "hal/joystick_control.h"
+#include "hal/util.h"
 
 #define MAX_LENGTH 1024
 // file for reading and writing to
