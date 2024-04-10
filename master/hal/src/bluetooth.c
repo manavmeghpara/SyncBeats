@@ -31,6 +31,7 @@ int charToInt(char c) {
     }
 }
 
+
 void* readDataFromBle(void* fd){
     int uartFileDescriptor = *((int*)fd);
     //char* rx_buffer = malloc(sizeof(*rx_buffer));
@@ -84,6 +85,19 @@ void* readDataFromBle(void* fd){
 					playPreviousSong();
                 }
                     break;
+                case SPEECH:{
+                    printf("Text to speech\n");
+                    while(1){
+                        // uart_read(uartFileDescriptor, rx_buffer);
+                        int bytesRead = read(uartFileDescriptor, &rx_buffer, 1);
+                        if (bytesRead < 0) {
+                            perror("Error occurred while reading UART device file");
+                        }else{
+                            printf("%c", rx_buffer);
+                        }
+                    }
+                }
+                break;
                 default:
                 break;
 
