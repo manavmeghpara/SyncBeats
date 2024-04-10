@@ -35,4 +35,9 @@ int getCurrentPosition();
 // Function to play music in a separate thread
 void* musicPlayer_playMusic(void* arg);
 
+void playMusicFile(const char* path);
+
+void playTheText(char* text);
+
+
 #endif

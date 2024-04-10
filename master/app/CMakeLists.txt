@@ -19,6 +19,11 @@ target_link_libraries(master LINK_PRIVATE Threads::Threads)
 find_library(MPG123_LIBRARY mpg123 HINTS $ENV{HOME}/cmpt433/public/mpg123_lib_BBB)
 target_link_libraries(master LINK_PRIVATE ${MPG123_LIBRARY})
 
+# LAME library
+find_library(LAME_LIBRARY mp3lame HINTS $ENV{HOME}/cmpt433/public/mp3lame_lib_BBB)
+target_link_libraries(master LINK_PRIVATE ${LAME_LIBRARY})
+    
+
 
 # Copy executable to final location (change `master` to project name as needed)
 add_custom_command(TARGET master POST_BUILD 

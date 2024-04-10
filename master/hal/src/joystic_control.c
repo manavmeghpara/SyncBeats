@@ -1,6 +1,7 @@
 #include "hal/joystick_control.h"
 #include "hal/musicPlayer.h"
 #include "hal/util.h"
+#include "hal/text_to_speech.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -63,7 +64,6 @@ void* joystickThreadFunction(void* args){
 		}
 			break;
 		case Right:{
-			//printf("Stopping current song\n");
 			stopCurrentSong();
 			playNextSong();
 			sleepForMs(300);
