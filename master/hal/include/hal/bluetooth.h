@@ -15,7 +15,8 @@ enum commands{
     VOLUME_UP,
     VOLUME_DOWN,
     NEXT,
-    PREVIOUS
+    PREVIOUS,
+    SPEECH
 };
 void bluetooth_init(); 
 void bluetooth_cleanup(); 
