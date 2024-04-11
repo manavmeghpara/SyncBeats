@@ -101,45 +101,14 @@ void *mp3FromWav(void *arg) {
     pthread_exit(NULL);
     return NULL;
 }
-char* replaceSpacesWithUnderscores(char* str) {
-    // Calculate the length of the input string
-    size_t len = strlen(str);
-
-    // Allocate memory for the modified string (maximum possible length is 2 times the original length)
-    char* modifiedStr = (char*)malloc((2 * len + 1) * sizeof(char));
-
-    // Check if memory allocation was successful
-    if (modifiedStr == NULL) {
-        fprintf(stderr, "Memory allocation failed\n");
-        exit(EXIT_FAILURE);
-    }
-
-    // Loop through each character in the input string
-    for (size_t i = 0; i < len; i++) {
-        // If the character is a space, replace it with an underscore
-        if (str[i] == ' ') {
-            modifiedStr[i] = '_';
-        } else {
-            // Otherwise, copy the character as is
-            modifiedStr[i] = str[i];
-        }
-    }
-
-    // Add null terminator to the modified string
-    modifiedStr[len] = '\0';
-
-    // Return the modified string
-    return modifiedStr;
-}
 
 char* text_to_speech(char* text){
     char command[256];
-    text = replaceSpacesWithUnderscores(text);
-    snprintf(command, sizeof(command), "espeak '%s' -w song-files/%s.wav", text, text);
+    snprintf(command, sizeof(command), "espeak '%s' -w song-files/test.wav", text);
     runCommand(command);
-    snprintf(path, sizeof(path), "song-files/%s.wav", text);
+    snprintf(path, sizeof(path), "song-files/test.wav");
 	convertWavToMp3(path);
-    snprintf(path, sizeof(path), "song-files/%s.mp3", text);
+    snprintf(path, sizeof(path), "song-files/test.mp3");
     return path;
 }
 
