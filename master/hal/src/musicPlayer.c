@@ -258,6 +258,10 @@ void playTheText(char* text){
 }
 
 void playNextSong(){
+    if(isPaused){
+        printf("Song paused, Resume the song First!!!\n");
+        return;
+    }
     playTheText("Playing next song");
     printf("song number is = %d\n", songNumber);
     printf("increasing song number \n");
@@ -266,6 +270,10 @@ void playNextSong(){
     //printf("Now songNumber is %d\n", songNumber);
 }
 void playPreviousSong(){
+    if(isPaused){
+        printf("Song paused, Resume the song First!!!\n");
+        return;
+    }
     playTheText("Playing previous song");
     if(songNumber == 0){
         songNumber = numSongs - 1;
@@ -276,11 +284,19 @@ void playPreviousSong(){
     }
 }
 void fastForward(int second) {
+    if(isPaused){
+        printf("Song paused, Resume the song First!!!\n");
+        return;
+    }
     sec = second;
     isFastForward = true; // Increment current position by specified seconds
 }
 
 void fastBackward(){
+    if(isPaused){
+        printf("Song paused, Resume the song First!!!\n");
+        return;
+    }
     isFastBackwards = true;
 }
 
