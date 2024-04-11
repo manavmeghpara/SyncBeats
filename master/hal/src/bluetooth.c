@@ -1,6 +1,7 @@
 #include "hal/bluetooth.h"
 #include "hal/joystick_control.h"
 #include "hal/util.h"
+#include "string.h"
 
 #define MAX_LENGTH 1024
 // file for reading and writing to
@@ -12,7 +13,6 @@ void bluetooth_init(){
 	fd = uart_init(UART_DEVICE);
 	pthread_create(&writeTid, NULL, readDataFromBle, (void*)&fd);
 }
-
 
 void bluetooth_cleanup(){
 	pthread_cancel(writeTid); 
@@ -70,7 +70,6 @@ void* readDataFromBle(void* fd){
                     printf("V Down\n");
 					int v = musicPlayer_getVolume();
 					musicPlayer_setVolume(v-10);
-                
                 }
 				break;
 				case NEXT:{
@@ -88,12 +87,21 @@ void* readDataFromBle(void* fd){
                 case SPEECH:{
                     printf("Text to speech\n");
                     while(1){
+                        char text[256];
                         // uart_read(uartFileDescriptor, rx_buffer);
                         int bytesRead = read(uartFileDescriptor, &rx_buffer, 1);
+                       
                         if (bytesRead < 0) {
                             perror("Error occurred while reading UART device file");
                         }else{
                             printf("%c", rx_buffer);
+                            if( rx_buffer == '.'){
+                                memmove(text, text + 4, strlen(text) - 3);
+                                printf("%s\n", text);
+                                playTheText(text);
+                            }
+                            else if(rx_buffer == '0') break;
+                            strncat(text, &rx_buffer, 1);
                         }
                     }
                 }

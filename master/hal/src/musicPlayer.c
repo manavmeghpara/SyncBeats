@@ -248,6 +248,7 @@ void stopCurrentSong() {
 }
 
 void playTheText(char* text){
+    stopCurrentSong();
     int temp = songNumber;
     songNumber = -1;
     ttsPath = text_to_speech(text);
