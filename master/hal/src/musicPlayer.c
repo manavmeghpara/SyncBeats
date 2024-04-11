@@ -4,10 +4,10 @@
 #include <stdio.h>
 #include <alsa/asoundlib.h>
 #include <mpg123.h>
-#include <stdbool.h> // Include this header for boolean type
+#include <stdbool.h>
+#include <dirent.h>
 
 #define DEFAULT_VOLUME 80
-#define TOTAL_NUMBER_OF_SONGS 2
 int volume;
 bool musicPlaying = false; // Flag to indicate whether music is playing
 int songNumber = 0;
@@ -23,6 +23,42 @@ char* ttsPath;
 int tempSong;
 static pthread_t musicPlayerThreadId;
 void* musicPlayerThreadFunction(void* arg);
+#define MAX_SONGS 100
+
+char* playlist[MAX_SONGS]; // Array to store paths of MP3 files
+int numSongs = 0; // Number of songs in the playlist
+
+// Function to scan a directory for MP3 files and add them to the playlist
+void createPlaylist(const char* directoryPath) {
+    DIR *dir;
+    struct dirent *ent;
+
+    // Open the directory
+    if ((dir = opendir(directoryPath)) != NULL) {
+        // Iterate over each entry in the directory
+        while ((ent = readdir(dir)) != NULL) {
+            // Check if the file ends with ".mp3"
+            if (strstr(ent->d_name, ".mp3") != NULL) {
+                // Allocate memory for the file path
+                playlist[numSongs] = malloc(strlen(directoryPath) + strlen(ent->d_name) + 2);
+                // Create the full file path
+                sprintf(playlist[numSongs], "%s/%s", directoryPath, ent->d_name);
+                // Increment the number of songs
+                numSongs++;
+            }
+        }
+        closedir(dir);
+    } else {
+        perror("Unable to open directory");
+        exit(EXIT_FAILURE);
+    }
+}
+
+void freePlaylist() {
+    for (int i = 0; i < numSongs; i++) {
+        free(playlist[i]);
+    }
+}
 
 void musicPlayer_init(){
 
@@ -197,6 +233,9 @@ void playMusicFile(const char* path) {
         snd_pcm_writei(pcmHandle, mp3Buffer, bytesRead / numChannels / sizeof(short));
         calculateCurrentPosition(mp3Handle);
     }
+    if(songLength == currentPosition){
+        songNumber++;
+    }
     // Free the mp3 buffer and close/delete handles
     free(mp3Buffer);
     snd_pcm_close(pcmHandle);
@@ -222,17 +261,17 @@ void playNextSong(){
     printf("song number is = %d\n", songNumber);
     printf("increasing song number \n");
     songNumber++;
-    songNumber = songNumber % TOTAL_NUMBER_OF_SONGS;
+    songNumber = songNumber % numSongs;
     //printf("Now songNumber is %d\n", songNumber);
 }
 void playPreviousSong(){
     playTheText("Playing previous song");
     if(songNumber == 0){
-        songNumber = TOTAL_NUMBER_OF_SONGS - 1;
+        songNumber = numSongs - 1;
     }
     else{
         songNumber--;
-        songNumber = songNumber % TOTAL_NUMBER_OF_SONGS;
+        songNumber = songNumber % numSongs;
     }
 }
 void fastForward(int second) {
@@ -255,22 +294,25 @@ void playSong(){
     isPaused = false;
     songNumber = tempSong;
 }
+// Function to play a song from the playlist based on its index
+void playSongFromPlaylist(int index) {
+    if (index >= 0 && index < numSongs) {
+        printf("Playing song %d: %s\n", index + 1, playlist[index]);
+        playMusicFile(playlist[index]);
+    } else {
+        printf("Invalid song index %d\n", index);
+    }
+}
 
 void* musicPlayerThreadFunction(void* arg){
     (void)arg;
+    const char* directoryPath = "/mnt/SD";
+    createPlaylist(directoryPath);
     while(1) {
         switch (songNumber)
 		{
-		case 0:{
-            musicPlaying = true;
-            //printf("Playing song 0\n");
-			playMusicFile("song-files/song0.mp3");
-		}
-			break;
-		case 1:{
-            musicPlaying = true;
-            //printf("Playing song 1\n");
-			playMusicFile("song-files/song1.mp3");
+		case -2:{
+            sleepForMs(10);
 		}
 			break;
         case -1:{
@@ -285,11 +327,13 @@ void* musicPlayerThreadFunction(void* arg){
         }
             break;
         default:{
-            sleepForMs(10);
+            musicPlaying = true;
+            playSongFromPlaylist(songNumber);
         }
             break;
 		}
     }
+    freePlaylist();
     return NULL;
 }
 
