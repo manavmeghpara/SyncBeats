@@ -209,7 +209,6 @@ void stopCurrentSong() {
 }
 
 void playTheText(char* text){
-    stopCurrentSong();
     int temp = songNumber;
     songNumber = -1;
     ttsPath = text_to_speech(text);
@@ -224,7 +223,7 @@ void playNextSong(){
     printf("increasing song number \n");
     songNumber++;
     songNumber = songNumber % TOTAL_NUMBER_OF_SONGS;
-    //printf("Now songNumber is %d\n", songNumber);
+    printf("Now songNumber is %d\n", songNumber);
 }
 void playPreviousSong(){
     playTheText("Playing previous song");
@@ -246,15 +245,17 @@ void fastBackward(){
 }
 
 void pauseSong(){
-    tempSong = songNumber;
+    if(songNumber != -2)
+        tempSong = songNumber;
     songNumber = -2;
     isPaused = true;
-    playTheText("song paused");
+    //playTheText("song paused");
 }
 
 void playSong(){
     isPaused = false;
     songNumber = tempSong;
+    printf("%d", songNumber);
 }
 
 void* musicPlayerThreadFunction(void* arg){
@@ -276,7 +277,7 @@ void* musicPlayerThreadFunction(void* arg){
 			break;
         case -1:{
             printf("inside tts\n");
-            sleepForMs(1000);
+            sleepForMs(2000);
             musicPlaying = true;
             //converterFileFlag = true;
             playTextMusicFile(ttsPath);

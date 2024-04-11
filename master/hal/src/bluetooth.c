@@ -98,7 +98,9 @@ void* readDataFromBle(void* fd){
                             if( rx_buffer == '.'){
                                 memmove(text, text + 4, strlen(text) - 3);
                                 printf("%s\n", text);
+                                pauseSong();
                                 playTheText(text);
+                                memset(text, 0, sizeof(text));
                             }
                             else if(rx_buffer == '0') break;
                             strncat(text, &rx_buffer, 1);
