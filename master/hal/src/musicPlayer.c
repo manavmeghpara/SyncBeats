@@ -17,7 +17,10 @@ bool isPaused = false;
 int sec = 1;
 int songLength;
 int currentPosition;
+int pausedSecond;
+bool wasPaused = false;
 char* ttsPath;
+int tempSong;
 static pthread_t musicPlayerThreadId;
 void* musicPlayerThreadFunction(void* arg);
 
@@ -156,6 +159,11 @@ void playMusicFile(const char* path) {
     mp3BufferSize = mpg123_outblock(mp3Handle);
     mp3Buffer = (unsigned char*)malloc(mp3BufferSize * sizeof(unsigned char));
     // Open the ALSA audio device for playback
+     if(wasPaused){
+            //printf("paused second = %d\n", pausedSecond);
+            mpg123_seek(mp3Handle, ++pausedSecond*44100, SEEK_SET);
+            wasPaused = false;
+        }
     snd_pcm_open(&pcmHandle, "default", SND_PCM_STREAM_PLAYBACK, 0);
     // Configure parameters for PCM output for the hardware
     snd_pcm_hw_params_alloca(&params);
@@ -171,7 +179,12 @@ void playMusicFile(const char* path) {
     // Decode the mp3 data, store in the mp3Buffer, and play it back
     size_t bytesRead = 0;
     while ((musicPlaying) && mpg123_read(mp3Handle, mp3Buffer, mp3BufferSize, &bytesRead) == MPG123_OK) {
-        while(isPaused);
+        //printf("current second = %d\n",currentPosition);
+        if(isPaused){
+            pausedSecond = currentPosition;
+            wasPaused = true;
+            break;
+        }
         if(isFastForward){
             mpg123_seek(mp3Handle, sec*4608, SEEK_CUR); // Seek to the specified position
             isFastForward = false;
@@ -233,11 +246,15 @@ void fastBackward(){
 }
 
 void pauseSong(){
+    tempSong = songNumber;
+    songNumber = -2;
     isPaused = true;
+    playTheText("song paused");
 }
 
 void playSong(){
     isPaused = false;
+    songNumber = tempSong;
 }
 
 void* musicPlayerThreadFunction(void* arg){
@@ -266,6 +283,10 @@ void* musicPlayerThreadFunction(void* arg){
             printf("text file played\n");
             //converterFileFlag = false;
             sleepForMs(200);
+        }
+            break;
+        default:{
+            sleepForMs(10);
         }
             break;
 		}

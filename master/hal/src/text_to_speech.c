@@ -102,7 +102,6 @@ void *mp3FromWav(void *arg) {
     return NULL;
 }
 
-
 char* text_to_speech(char* text){
     char command[256];
     snprintf(command, sizeof(command), "espeak '%s' -w song-files/test.wav", text);
