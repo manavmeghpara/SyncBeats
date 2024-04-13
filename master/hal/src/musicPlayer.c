@@ -162,7 +162,7 @@ void playTextMusicFile(const char* path) {
 
     // Decode the mp3 data, store in the mp3Buffer, and play it back
     size_t bytesRead = 0;
-    while (mpg123_read(mp3Handle, mp3Buffer, mp3BufferSize, &bytesRead) == MPG123_OK) {
+    while (mpg123_read(mp3Handle, mp3Buffer, mp3BufferSize, &bytesRead) == MPG123_OK && !Util_is_shutDown()) {
         snd_pcm_prepare(pcmHandle);
         snd_pcm_writei(pcmHandle, mp3Buffer, bytesRead / numChannels / sizeof(short));
         usleep(40000);
@@ -214,7 +214,7 @@ void playMusicFile(const char* path) {
 
     // Decode the mp3 data, store in the mp3Buffer, and play it back
     size_t bytesRead = 0;
-    while ((musicPlaying) && mpg123_read(mp3Handle, mp3Buffer, mp3BufferSize, &bytesRead) == MPG123_OK) {
+    while ((musicPlaying) && mpg123_read(mp3Handle, mp3Buffer, mp3BufferSize, &bytesRead) == MPG123_OK && !Util_is_shutDown()) {
         //printf("current second = %d\n",currentPosition);
         if(isPaused){
             pausedSecond = currentPosition;
@@ -222,12 +222,10 @@ void playMusicFile(const char* path) {
             break;
         }
         if(isFastForward){
-            mpg123_seek(mp3Handle, sec*4608, SEEK_CUR); // Seek to the specified position
-            isFastForward = false;
+            mpg123_seek(mp3Handle, sec*1152, SEEK_CUR); // Seek to the specified position
         }
         if(isFastBackwards){
-            mpg123_seek(mp3Handle, (-3)*4608, SEEK_CUR); // Seek to the specified position
-            isFastBackwards = false;
+            mpg123_seek(mp3Handle, sec*(-3)*1152, SEEK_CUR); // Seek to the specified position
         }
         snd_pcm_prepare(pcmHandle);
         snd_pcm_writei(pcmHandle, mp3Buffer, bytesRead / numChannels / sizeof(short));
@@ -291,12 +289,21 @@ void fastForward(int second) {
     isFastForward = true; // Increment current position by specified seconds
 }
 
-void fastBackward(){
+void stopFastForward(){
+    isFastForward = false;
+}
+
+void fastBackward(int second){
     if(isPaused){
         printf("Song paused, Resume the song First!!!\n");
         return;
     }
+    sec = second;
     isFastBackwards = true;
+}
+
+void stopFastBackward(){
+    isFastBackwards = false;
 }
 
 void pauseSong(){
@@ -321,21 +328,12 @@ void playSongFromPlaylist(int index) {
         printf("Invalid song index %d\n", index);
     }
 }
-// Function to play a song from the playlist based on its index
-void playSongFromPlaylist(int index) {
-    if (index >= 0 && index < numSongs) {
-        printf("Playing song %d: %s\n", index + 1, playlist[index]);
-        playMusicFile(playlist[index]);
-    } else {
-        printf("Invalid song index %d\n", index);
-    }
-}
 
 void* musicPlayerThreadFunction(void* arg){
     (void)arg;
     const char* directoryPath = "/mnt/SD";
     createPlaylist(directoryPath);
-    while(1) {
+    while(!Util_is_shutDown()) {
         switch (songNumber)
 		{
 		case -2:{
@@ -360,10 +358,13 @@ void* musicPlayerThreadFunction(void* arg){
             break;
 		}
     }
-    freePlaylist();
+
+    pauseSong();
+    
     return NULL;
 }
 
 void musicPlayer_cleanup(){
     pthread_join(musicPlayerThreadId, NULL);
+    freePlaylist();
 }

@@ -22,7 +22,11 @@ void playPreviousSong();
 
 void fastForward(int second);
 
-void fastBackward();
+void stopFastForward();
+
+void stopFastBackward();
+
+void fastBackward(int second);
 
 void pauseSong();
 

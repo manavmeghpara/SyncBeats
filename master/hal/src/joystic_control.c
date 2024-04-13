@@ -51,7 +51,7 @@ void* joystickThreadFunction(void* args){
 	(void)args;
 	musicPlayer_setVolume(80);
 	bool isPaused = false;
-	while (1){
+	while (!Util_is_shutDown()){
 		
 		enum eJoystickDirections direction;
 		direction = getDirections();
@@ -70,12 +70,16 @@ void* joystickThreadFunction(void* args){
 		}
 			break;
 		case Up:{
-			fastForward(1);
+			fastForward(4);
+			sleepForMs(100);
+			stopFastForward();
 			sleepForMs(100);
 		}
 			break;
 		case Down:{
-			fastBackward();
+			fastBackward(4);
+			sleepForMs(100);
+			stopFastBackward();
 			sleepForMs(100);
 		}
 			break;

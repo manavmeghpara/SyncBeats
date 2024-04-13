@@ -75,8 +75,10 @@ void Network_previous()
 void *handle_client(void *arg) {
     struct Thread_args* args = (struct Thread_args *)arg;
     char buffer[MAX_LEN];
-    while (true) {
+    while (!Util_is_shutDown()) {
+
         // Receive message from client
+  
         int len = recvfrom(args->sockfd, buffer, MAX_LEN-1, 0, (struct sockaddr *)&client_addr, &client_addr_len);
         buffer[len] = '\0';
         printf("\nReceived message from client: %s\n", buffer);
@@ -102,10 +104,11 @@ void *handle_client(void *arg) {
         else if(strncmp(buffer, "previous", 8)==0)
             Network_previous();
 
-     
-          
 
     }
+
+    close(args->sockfd);
+    free(args);
 
     return NULL;
 }

@@ -59,7 +59,7 @@ void pot_pwm_init() {
 void *pwm_thread_function(void* args) {
     (void)args;
     int current_pot = 0;
-    while (1) {
+    while (!Util_is_shutDown()) {
         int v = read_pot_value()/41;
         if( v != current_pot){
             musicPlayer_setVolume(v);

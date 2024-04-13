@@ -38,7 +38,7 @@ void* readDataFromBle(void* fd){
     char rx_buffer; 
 	printf("Thread 1 Reading...\n");
 
-    while(1){
+    while(!Util_is_shutDown()){
         // uart_read(uartFileDescriptor, rx_buffer);
         int bytesRead = read(uartFileDescriptor, &rx_buffer, 1);
         if (bytesRead < 0) {
@@ -96,11 +96,12 @@ void* readDataFromBle(void* fd){
                         }else{
                             printf("%c", rx_buffer);
                             if( rx_buffer == '.'){
-                                memmove(text, text + 4, strlen(text) - 3);
+                                //memmove(text, text + 4, strlen(text) - 3);
                                 printf("%s\n", text);
                                 pauseSong();
                                 playTheText(text);
                                 memset(text, 0, sizeof(text));
+                                break;
                             }
                             else if(rx_buffer == '0') break;
                             strncat(text, &rx_buffer, 1);
@@ -108,6 +109,55 @@ void* readDataFromBle(void* fd){
                     }
                 }
                 break;
+
+                case END:{
+                    printf("Program Ending!\n");
+                    Util_trigger_shutDown();
+                }
+                break;
+
+                case REWIND:{
+                    printf("Rewind\n");
+                    while(1){
+                        fastBackward(1);
+                        // uart_read(uartFileDescriptor, rx_buffer);
+                        int bytesRead = read(uartFileDescriptor, &rx_buffer, 1);
+                       
+                        if (bytesRead < 0) {
+                            perror("Error occurred while reading UART device file");
+                        }else{
+                            printf("%c", rx_buffer);
+                            if(rx_buffer == '0') {
+                                stopFastBackward();
+                                break;
+                            }
+                           
+                        }
+                    }
+                }
+                break;
+
+                case FORWARD:{
+                    printf("Forward\n");
+                    while(1){
+                        fastForward(1);
+                        // uart_read(uartFileDescriptor, rx_buffer);
+                        int bytesRead = read(uartFileDescriptor, &rx_buffer, 1);
+                       
+                        if (bytesRead < 0) {
+                            perror("Error occurred while reading UART device file");
+                        }else{
+                            printf("%c", rx_buffer);
+                            if(rx_buffer == '0') {
+                                stopFastForward();
+                                break;
+                            }
+                           
+                        }
+                    }
+                }
+                break;
+
                 default:
                 break;
 
@@ -117,4 +167,5 @@ void* readDataFromBle(void* fd){
         }
         sleepForMs(50); 
     }
+    return NULL;
 }
